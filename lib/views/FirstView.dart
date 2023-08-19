@@ -28,15 +28,7 @@ class MainView extends StatelessWidget {
           )
         ],
       ),
-      body: Column(
-        children: [
-          Column(
-            children: [
-              NoteItems(),
-            ],
-          )
-        ],
-      ),
+      body: NoteItemsView(),
     );
   }
 }

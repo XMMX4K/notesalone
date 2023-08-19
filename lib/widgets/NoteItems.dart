@@ -1,16 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:notes/widgets/NoteItemsBody.dart';
 
-class NoteItems extends StatelessWidget {
-  const NoteItems({
+class NoteItemsView extends StatelessWidget {
+  const NoteItemsView({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text('Flutter Tips'),
-      subtitle: Text('Find your way'),
-      trailing: Text('12/5/2001'),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          NoteItemsBody()
+        ],
+      ),
     );
   }
 }
