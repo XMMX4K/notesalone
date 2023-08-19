@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/widgets/NoteItems.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
@@ -24,6 +25,15 @@ class MainView extends StatelessWidget {
                     color: Colors.white.withOpacity(0.1),
                     borderRadius: BorderRadius.all(Radius.circular(16))),
                 child: IconButton(onPressed: () {}, icon: Icon(Icons.search))),
+          )
+        ],
+      ),
+      body: Column(
+        children: [
+          Column(
+            children: [
+              NoteItems(),
+            ],
           )
         ],
       ),
