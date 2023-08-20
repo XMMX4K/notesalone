@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/widgets/CusttomContainer.dart';
 import 'package:notes/widgets/CusttomTextFeild.dart';
 
 class ModelSheet extends StatelessWidget {
@@ -14,7 +15,22 @@ class ModelSheet extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          CusttomTextFeild()
+          CusttomTextFeild(
+            CustText: 'Title',
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          CusttomTextFeild(
+            CustText: 'Content',
+            maxlines: 5,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          CusttomContainer(
+            ontap: () {},
+          )
         ],
       ),
     );

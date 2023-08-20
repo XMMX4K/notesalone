@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:notes/helper/Colors.dart';
 
 class CusttomTextFeild extends StatelessWidget {
-  const CusttomTextFeild({
-    super.key,
-  });
+  const CusttomTextFeild({required this.CustText, this.maxlines = 1});
+  final String CustText;
+  final int maxlines;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
+        maxLines: maxlines,
         decoration: InputDecoration(
-            hintText: 'Title',
+            hintText: '$CustText',
             hintStyle:
                 TextStyle(fontSize: 20, color: Colors.grey.withOpacity(0.5)),
-            enabledBorder: OutlineInputBorder(
-                borderSide:
-                    BorderSide(color: Colors.lightGreen.withOpacity(0.5))),
-            border: OutlineInputBorder(
-                borderSide:
-                    BorderSide(color: Colors.lightGreen.withOpacity(0.5)))),
+            enabledBorder:
+                OutlineInputBorder(borderSide: BorderSide(color: maColor)),
+            border: OutlineInputBorder(borderSide: BorderSide(color: maColor))),
       ),
     );
   }

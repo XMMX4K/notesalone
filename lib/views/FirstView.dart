@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:notes/helper/Colors.dart';
+import 'package:notes/widgets/ModelSheet.dart';
 import 'package:notes/widgets/NoteItems.dart';
 
 class MainView extends StatelessWidget {
@@ -8,12 +10,14 @@ class MainView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
+        backgroundColor: maColor,
         onPressed: () {
           showModalBottomSheet(
+              shape: ContinuousRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(16))),
               context: context,
               builder: (BuildContext) {
-                return Container();
+                return ModelSheet();
               });
         },
         child: Icon(
@@ -22,6 +26,7 @@ class MainView extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: Color(0xff303030),
         elevation: 0,
         title: Padding(
           padding: const EdgeInsets.only(left: 20),
