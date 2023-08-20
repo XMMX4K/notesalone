@@ -18,7 +18,9 @@ class NoteItemsView extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return NoteItemsBody();
+                return NoteItemsBody(
+                  onttap: () {},
+                );
               },
             ),
           )
