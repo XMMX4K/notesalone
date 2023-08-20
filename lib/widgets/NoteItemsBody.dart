@@ -22,19 +22,33 @@ class NoteItemsBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ListTile(
-                  title: CusttomText(text: 'Flutter Tips'),
-                  subtitle: CusttomText(text: 'Find Your Way '),
-                  trailing: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.delete,
-                      size: 50,
-                      color: Colors.black,
+                  title: CusttomText(
+                    text: 'Flutter Tips',
+                    coolor: Colors.black,
+                  ),
+                  subtitle: CusttomText(
+                    text: 'Find Your Way ',
+                    fonsize: 20,
+                    coolor: Colors.black.withOpacity(0.7),
+                  ),
+                  trailing: Padding(
+                    padding: const EdgeInsets.only(right: 16),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.delete,
+                        size: 50,
+                        color: Colors.black,
+                      ),
                     ),
                   )),
               Padding(
                 padding: const EdgeInsets.only(left: 150),
-                child: CusttomText(text: '22/25/2250'),
+                child: CusttomText(
+                  text: '22/25/2250',
+                  fonsize: 20,
+                  coolor: Colors.black.withOpacity(0.9),
+                ),
               ),
             ],
           ),
