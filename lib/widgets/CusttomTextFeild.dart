@@ -16,9 +16,12 @@ class CusttomTextFeild extends StatelessWidget {
             hintText: '$CustText',
             hintStyle:
                 TextStyle(fontSize: 20, color: Colors.grey.withOpacity(0.5)),
-            enabledBorder:
-                OutlineInputBorder(borderSide: BorderSide(color: maColor)),
-            border: OutlineInputBorder(borderSide: BorderSide(color: maColor))),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(color: maColor)),
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide(color: maColor))),
       ),
     );
   }
