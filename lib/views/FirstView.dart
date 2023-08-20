@@ -7,6 +7,20 @@ class MainView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green,
+        onPressed: () {
+          showModalBottomSheet(
+              context: context,
+              builder: (BuildContext) {
+                return Container();
+              });
+        },
+        child: Icon(
+          Icons.add,
+          size: 30,
+        ),
+      ),
       appBar: AppBar(
         elevation: 0,
         title: Padding(

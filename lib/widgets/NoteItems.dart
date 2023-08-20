@@ -15,7 +15,13 @@ class NoteItemsView extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          NoteItemsBody()
+          Expanded(
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return NoteItemsBody();
+              },
+            ),
+          )
         ],
       ),
     );
