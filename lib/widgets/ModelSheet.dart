@@ -10,28 +10,31 @@ class ModelSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 30,
-          ),
-          CusttomTextFeild(
-            CustText: 'Title',
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          CusttomTextFeild(
-            CustText: 'Content',
-            maxlines: 5,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          CusttomContainer(
-            ontap: () {},
-          )
-        ],
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 30,
+            ),
+            CusttomTextFeild(
+              CustText: 'Title',
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            CusttomTextFeild(
+              CustText: 'Content',
+              maxlines: 5,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            CusttomContainer(
+              ontap: () {},
+            )
+          ],
+        ),
       ),
     );
   }
