@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notes/helper/Colors.dart';
 
 class CusttomContainer extends StatelessWidget {
-  const CusttomContainer({required this.ontap});
+  const CusttomContainer({this.ontap});
 
   final void Function()? ontap;
   @override
@@ -12,7 +12,7 @@ class CusttomContainer extends StatelessWidget {
       child: Container(
         child: Center(
           child: Text(
-            'Save',
+            'Add',
             style: TextStyle(fontSize: 22, color: Colors.black),
           ),
         ),
