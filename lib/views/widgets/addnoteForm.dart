@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes/widgets/CusttomContainer.dart';
-import 'package:notes/widgets/CusttomTextFeild.dart';
-
-class ModelSheet extends StatelessWidget {
-  const ModelSheet({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: addnoteForm(),
-      ),
-    );
-  }
-}
+import 'package:notes/views/widgets/CusttomContainer.dart';
+import 'package:notes/views/widgets/CusttomTextFeild.dart';
 
 class addnoteForm extends StatefulWidget {
   addnoteForm({
