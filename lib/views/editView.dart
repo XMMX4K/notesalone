@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes/widgets/CusttomTextFeild.dart';
+import 'package:notes/views/widgets/CusttomTextFeild.dart';
 
 class EditNoteItem extends StatelessWidget {
   const EditNoteItem({super.key});

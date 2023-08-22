@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes/helper/Colors.dart';
-import 'package:notes/widgets/ModelSheet.dart';
-import 'package:notes/widgets/NoteItems.dart';
+import 'package:notes/views/widgets/ModelSheet.dart';
+import 'package:notes/views/widgets/NoteItems.dart';
 
 class MainView extends StatelessWidget {
   const MainView({super.key});
