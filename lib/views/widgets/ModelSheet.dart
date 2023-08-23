@@ -28,10 +28,13 @@ class ModelSheet extends StatelessWidget {
           },
           builder: (context, state) {
             return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.only(
+                    left: 10,
+                    right: 10,
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
                 child: AbsorbPointer(
                     absorbing: state is addLoading ? true : false,
-                    child: addnoteForm()));
+                    child: SingleChildScrollView(child: addnoteForm())));
           },
         ),
       ),
