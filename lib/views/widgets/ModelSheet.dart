@@ -12,9 +12,11 @@ class ModelSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+    return BlocProvider(
+      create: (context) {
+        return addcubit();
+      },
+      child: Container(
         child: BlocConsumer<addcubit, AddNoteState>(
           listener: (context, state) {
             if (state is addFail) {
@@ -25,9 +27,11 @@ class ModelSheet extends StatelessWidget {
             }
           },
           builder: (context, state) {
-            return ModalProgressHUD(
-                inAsyncCall: state is addLoading ? true : false,
-                child: addnoteForm());
+            return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: AbsorbPointer(
+                    absorbing: state is addLoading ? true : false,
+                    child: addnoteForm()));
           },
         ),
       ),

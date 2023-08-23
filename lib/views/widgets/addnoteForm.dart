@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/cubits/AddCubit/addCubit.dart';
+import 'package:notes/cubits/AddCubit/addState.dart';
+import 'package:notes/models/note_model.dart';
 import 'package:notes/views/widgets/CusttomContainer.dart';
 import 'package:notes/views/widgets/CusttomTextFeild.dart';
 
@@ -45,14 +49,25 @@ class _addnoteFormState extends State<addnoteForm> {
           SizedBox(
             height: 20,
           ),
-          CusttomContainer(
-            ontap: () {
-              if (formkey.currentState!.validate()) {
-                formkey.currentState!.save();
-              } else {
-                autovalidate = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<addcubit, AddNoteState>(
+            builder: (context, state) {
+              return CusttomContainer(
+                isloadingg: state is addLoading ? true : false,
+                ontap: () {
+                  if (formkey.currentState!.validate()) {
+                    formkey.currentState!.save();
+                    var notemodel1 = notemodel(
+                        title: title!,
+                        Content: Content!,
+                        date: DateTime.now().toString(),
+                        color: Colors.blue.value);
+                    BlocProvider.of<addcubit>(context).addnote(notemodel1);
+                  } else {
+                    autovalidate = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           )
         ],

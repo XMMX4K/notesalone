@@ -14,6 +14,8 @@ class MainView extends StatelessWidget {
         backgroundColor: maColor,
         onPressed: () {
           showModalBottomSheet(
+              showDragHandle: true,
+              isScrollControlled: true,
               shape: ContinuousRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(16))),
               context: context,
