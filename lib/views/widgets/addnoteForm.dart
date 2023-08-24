@@ -51,6 +51,9 @@ class _addnoteFormState extends State<addnoteForm> {
             height: 20,
           ),
           ColorsList(),
+          SizedBox(
+            height: 20,
+          ),
           BlocBuilder<addcubit, AddNoteState>(
             builder: (context, state) {
               return CusttomContainer(
