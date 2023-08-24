@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:notes/helper/Colors.dart';
+import 'package:notes/models/note_model.dart';
 import 'package:notes/views/widgets/CusttomText.dart';
 
 class NoteItemsBody extends StatelessWidget {
-  const NoteItemsBody({required this.onttap});
+  const NoteItemsBody({required this.onttap, required this.note});
 
   final void Function()? onttap;
+
+  final notemodel note;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,11 +26,11 @@ class NoteItemsBody extends StatelessWidget {
             children: [
               ListTile(
                   title: CusttomText(
-                    text: 'Flutter Tips',
+                    text: (note.title),
                     coolor: Colors.black,
                   ),
                   subtitle: CusttomText(
-                    text: 'Find Your Way ',
+                    text: (note.Content),
                     fonsize: 20,
                     coolor: Colors.black.withOpacity(0.7),
                   ),
@@ -45,7 +48,7 @@ class NoteItemsBody extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 150),
                 child: CusttomText(
-                  text: '22/25/2250',
+                  text: (note.date.substring(0, 10)),
                   fonsize: 20,
                   coolor: Colors.black.withOpacity(0.9),
                 ),

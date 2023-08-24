@@ -56,12 +56,12 @@ class _addnoteFormState extends State<addnoteForm> {
                 ontap: () {
                   if (formkey.currentState!.validate()) {
                     formkey.currentState!.save();
-                    var notemodel1 = notemodel(
+                    var not = notemodel(
                         title: title!,
                         Content: Content!,
                         date: DateTime.now().toString(),
                         color: Colors.blue.value);
-                    BlocProvider.of<addcubit>(context).addnote(notemodel1);
+                    BlocProvider.of<addcubit>(context).addnote(not);
                   } else {
                     autovalidate = AutovalidateMode.always;
                     setState(() {});

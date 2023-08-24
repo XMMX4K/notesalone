@@ -4,15 +4,12 @@ import 'package:notes/cubits/readNoteCubit/readState.dart';
 import 'package:notes/helper/Colors.dart';
 import 'package:notes/models/note_model.dart';
 
-class readCubit extends Cubit<readNote> {
+class readCubit extends Cubit<readNoteState> {
   readCubit() : super(readintail());
-  feachNotes() async {
-    try {
-      var notebox = Hive.box<notemodel>(kmainbox);
-      List<notemodel> nooote = notebox.values.toList();
-      emit(readSucsses(nooote));
-    } catch (e) {
-      emit(readFail(e.toString()));
-    }
+
+  List<notemodel>? notes;
+  feachNotes() {
+    var notebox = Hive.box<notemodel>(kmainbox);
+    notes = notebox.values.toList();
   }
 }
