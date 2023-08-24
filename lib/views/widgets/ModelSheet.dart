@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/AddCubit/addCubit.dart';
 import 'package:notes/cubits/AddCubit/addState.dart';
+import 'package:notes/cubits/readNoteCubit/readCubit.dart';
 import 'package:notes/views/widgets/addnoteForm.dart';
 
 class ModelSheet extends StatelessWidget {
@@ -22,6 +23,7 @@ class ModelSheet extends StatelessWidget {
               print('failed ${state.errorMessage}');
             }
             if (state is addSucsses) {
+              BlocProvider.of<readCubit>(context).feachNotes();
               Navigator.pop(context);
             }
           },
