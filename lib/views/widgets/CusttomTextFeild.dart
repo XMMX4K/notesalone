@@ -3,10 +3,12 @@ import 'package:notes/helper/Colors.dart';
 
 class CusttomTextFeild extends StatelessWidget {
   const CusttomTextFeild(
-      {required this.CustText, this.maxlines = 1, this.onsaved});
+      {required this.CustText, this.maxlines = 1, this.onsaved, this.onchange});
   final String CustText;
   final int maxlines;
   final void Function(String?)? onsaved;
+  final void Function(String?)? onchange;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,6 +21,7 @@ class CusttomTextFeild extends StatelessWidget {
             return null;
           }
         },
+        onChanged: onchange,
         onSaved: onsaved,
         maxLines: maxlines,
         decoration: InputDecoration(

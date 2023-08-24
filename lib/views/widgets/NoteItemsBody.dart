@@ -3,12 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/readNoteCubit/readCubit.dart';
 import 'package:notes/helper/Colors.dart';
 import 'package:notes/models/note_model.dart';
+import 'package:notes/views/editView.dart';
 import 'package:notes/views/widgets/CusttomText.dart';
 
 class NoteItemsBody extends StatelessWidget {
-  const NoteItemsBody({required this.onttap, required this.note});
-
-  final void Function()? onttap;
+  const NoteItemsBody({required this.note});
 
   final notemodel note;
   @override
@@ -16,7 +15,13 @@ class NoteItemsBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
       child: GestureDetector(
-        onTap: onttap,
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (BuildContext) {
+            return EditNoteItem(
+              note: note,
+            );
+          }));
+        },
         child: Container(
           decoration: BoxDecoration(
               color: MColor,
@@ -40,8 +45,7 @@ class NoteItemsBody extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 16),
                     child: IconButton(
                       onPressed: () {
-                        note.delete();
-                        BlocProvider.of<readCubit>(context).feachNotes();
+                        ShowDIALOG(context);
                       },
                       icon: Icon(
                         Icons.delete,
@@ -63,5 +67,39 @@ class NoteItemsBody extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<dynamic> ShowDIALOG(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            actions: [
+              TextButton(
+                child: const Text('No'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: const Text('Yes'),
+                onPressed: () {
+                  note.delete();
+                  BlocProvider.of<readCubit>(context).feachNotes();
+
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+            title: const Text('Delete Note'),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: [
+                  Text('Are you sure want to Delete this note?'),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }

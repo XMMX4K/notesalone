@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes/cubits/readNoteCubit/readCubit.dart';
+import 'package:notes/models/note_model.dart';
 import 'package:notes/views/widgets/CusttomTextFeild.dart';
 
 class EditNoteItem extends StatelessWidget {
-  const EditNoteItem({super.key});
+  EditNoteItem({required this.note, this.title, this.content});
 
+  final notemodel note;
+  String? title, content;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,9 +21,16 @@ class EditNoteItem extends StatelessWidget {
               width: 50,
               height: 50,
               margin: EdgeInsets.all(8),
-              child: Icon(
-                Icons.check,
-                size: 30,
+              child: IconButton(
+                onPressed: () {
+                  note.title = title ?? note.title;
+                  note.Content = content ?? note.Content;
+                  note.save();
+                  BlocProvider.of<readCubit>(context).feachNotes();
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.check),
+                iconSize: 30,
               ),
               decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.1),
@@ -40,12 +52,19 @@ class EditNoteItem extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            CusttomTextFeild(CustText: 'Title'),
+            CusttomTextFeild(
+                onchange: (value) {
+                  title = value;
+                },
+                CustText: '${note.title}'),
             SizedBox(
               height: 20,
             ),
             CusttomTextFeild(
-              CustText: 'Content',
+              onchange: (value) {
+                content = value;
+              },
+              CustText: '${note.Content}',
               maxlines: 6,
             )
           ],

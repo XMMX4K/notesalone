@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubits/readNoteCubit/readCubit.dart';
 import 'package:notes/cubits/readNoteCubit/readState.dart';
 import 'package:notes/models/note_model.dart';
-import 'package:notes/views/editView.dart';
 import 'package:notes/views/widgets/NoteItemsBody.dart';
 
 class NoteItemsView extends StatefulWidget {
@@ -38,13 +37,8 @@ class _NoteItemsViewState extends State<NoteItemsView> {
                 itemCount: notes.length,
                 itemBuilder: (context, index) {
                   return NoteItemsBody(
-                      note: notes[index],
-                      onttap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (BuildContext) {
-                          return EditNoteItem();
-                        }));
-                      });
+                    note: notes[index],
+                  );
                 },
               ),
             )
